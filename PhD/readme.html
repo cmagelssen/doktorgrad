@@ -1,0 +1,69 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+        <title>Les meg</title>
+        <meta charset="UTF-8">
+        <link href="https://fonts.googleapis.com/css2?family=Varela&display=swap" rel="stylesheet">
+        <style>
+            * {
+                font-family: 'Varela', sans-serif;
+                margin-left: 20px;
+                margin-right: 20px;
+            }
+            h1 {
+                font-family: 'Varela', sans-serif;
+                font-size: 20px;
+                text-align: center;
+            }
+
+            h5 {
+                font-family: 'Varela', sans-serif;
+                font-size: 16px;
+                padding: 0;
+                line-height : 20px;
+            }
+            h5:hover {
+               color: teal;
+            }
+        </style>
+    </head>
+    <body>
+    <h1>Les meg</h1>
+    <p>Her er en oversikt over metoder man kan bruke for å analysere dataen. Python 3 er hovedspråket som er brukt for analysere dataen. Videre er modulene Pandas, Seaborn, Matplotlib benyttet. En Objekt-Orientert tilnærming er også benyttet, noen ganger med statiske metoder. Jeg har laget 3 hovedmoduler for å analysere dataen</p>
+
+        <h2>Modulen analysetrening</h2>
+    <p></p>
+    <p>Modulen 'analysetrening' består av en klasse som heter 'Trening'. Denne innholder en rekke statiske metoder (@staticmethods) som rydder og analyserer data</p>
+    <p>Det kan være hensiktsmessig å gruppere disse statiske metodene i en .pipe i main-filen, f.eks:</p>
+    <p  style="color:teal;">
+        df = df.pipe(Trening.dnfCountandReplace, dnfF, LagreCsv=True)\<br />
+    .pipe(Trening.changeDataType)\<br />
+    .pipe(Trening.renameCommentToCourse)\<br />
+    .pipe(Trening.groupData)\<br />
+    .pipe(Trening.calculateSpeed)\</p>
+
+    <h5>Trening.dnfCountandReplace()</h5>
+    <p>@staticmethod som leser inn .csv filen. Denne tar inn to nødvendige argumenter: path og fileName. F.eks. path = "/Users/cmagelssen/Desktop/DataAnalyse/data/pilot1/trening1/", filename = "PILOT1_SESSION2.csv". x = Trening.loadData(path, filename)</p>
+
+    <h5>Trening.changeDataType()</h5>
+    <p>@staticmethod som endrer datatype på hele datasettet</p>
+
+    <h5>Trening.renameCommenttoCourse()</h5>
+    <p>@staticmethod som endrer kolonnenavn fra COMMENT til COURSE. Den endrer samtidig</p>
+
+    <h5>Trening.groupData()</h5>
+    <p>@staticmethod som grupperer etter BIB# (dvs. utøver) og etter løype. Man bør velge ENTEN denne metoden eller groupDataAndFindTwoBestRunsForEachCourse(). Ikke begge to samtidig</p>
+
+    <h5>Trening.groupData()</h5>
+    <p>@staticmethod regner ut inngangshastighet</p>
+
+    <h2>Modulen lageplot</h2>
+    <p></p>
+    <p>Modulen 'lageplot' består av en klasse som heter 'Visualisering'. Denne innholder en rekke statiske metoder (@staticmethods) som lager plot av dataen. For at disse metodene skal fungere er det viktig at </p>
+
+    <h5>visualisering.Prestasjon()</h5>
+    <p>@staticmethod som lager et enkelt plot med loyper som X variabel og FINISH som Y variabel. COURSE er hue. Krever en dataframe som argument</p>
+
+    <h5>visualisering.plotInngangshastigetForLoyper()</h5>
+    <p>@staticmethod som lager et enkelt plot for inngangshastighet for de ulike løypene per utøver. Tar X, Y og HUE og krever en DataFrame som et argument</p>
+    </body>
+</html>
